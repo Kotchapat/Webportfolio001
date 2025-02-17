@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Page</title>
+    <link rel="stylesheet" href="src/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        roboto: ["Roboto", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("hidden");
+        }
+    </script>
+</head>
+
+<body class="bg-white font-roboto">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center p-6">
+            <a href="#HOME" class="text-2xl font-bold text-blue-600">My Website</a>
+            <button class="md:hidden text-2xl" onclick="toggleMenu()">☰</button>
+            <ul id="menu" class="hidden md:flex space-x-8 text-lg font-medium text-gray-700">
+                <li><a href="#HOME" class="hover:text-blue-500 transition">HOME</a></li>
+                <li><a href="#EXERCISES" class="hover:text-blue-500 transition">EXERCISES</a></li>
+                <li><a href="exercise/ex5login.html" class="hover:text-blue-500 transition">LOGIN</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="HOME"
+        class="flex flex-col md:flex-row items-center justify-center h-screen pt-20 container mx-auto px-6">
+        <img src="exercise/images/book.jpg" alt="Book Image" class="hero-image w-3/4 md:w-1/2 max-w-sm md:max-w-md">
+        <div class="text-center md:text-left md:ml-8 mt-6 md:mt-0">
+            <h1 class="hero-title">Hey! I'm</h1>
+            <h2 class="hero-name">KOTCHAPAT KANLAYAKAN</h2>
+            <p class="hero-subtitle">6640011001</p>
+        </div>
+    </section>
+
+    <!-- Exercises Section -->
+    <section id="EXERCISES" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Exercises</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+            <div class="exercise-card"><a href="exercise/ex1menu.html">Ex1 (Basic HTML)</a></div>
+            <div class="exercise-card"><a href="exercise/ex2form.html">Ex2 (Form)</a></div>
+            <div class="exercise-card"><a href="exercise/ex3boxmodel.html">Ex3 (Box Model)</a></div>
+            <div class="exercise-card"><a href="exercise/ex4pagelayout.html">Ex4 (Page Layout)</a></div>
+            <div class="exercise-card"><a href="exercise/ex5login.html">Ex5 (Log In)</a></div>
+        </div>
+    </section>
+
+</body>
+
+</html>

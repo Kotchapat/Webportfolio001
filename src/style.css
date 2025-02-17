@@ -1,0 +1,58 @@
+
+.hero-title {
+  font-size: 40px;
+  color: #333;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: transform 0.5s ease-in-out;
+}
+
+.hero-name {
+  font-size: 48px;
+  color: #3b82f6;
+  font-weight: 600;
+  transition: transform 0.5s ease-in-out;
+}
+
+.hero-subtitle {
+  font-size: 40px;
+  color: #4b5563;
+  font-weight: 400;
+  margin-top: 10px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.hero-image {
+  transition: transform 0.5s ease-in-out;
+}
+
+.hero-image:hover, .hero-title:hover, .hero-name:hover, .hero-subtitle:hover {
+  transform: translateX(10px);
+}
+
+.exercise-card {
+  background: linear-gradient(135deg, #3B82F6, #60A5FA);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exercise-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.exercise-card a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.exercise-card a:hover {
+  color: #0D47A1;
+}

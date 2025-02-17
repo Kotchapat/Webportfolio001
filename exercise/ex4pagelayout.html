@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กล้วยบวชชี</title>
+
+    <!-- ลิงก์ฟอนต์ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ใช้ฟอนต์ที่เรียบง่าย */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: #444;
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        /* ปรับวัตถุดิบให้ดูง่าย */
+        .ingredients-list {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 0 15px;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        /* ปรับวิธีทำให้ดูง่าย */
+        .steps-list {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 0 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .back-to-top {
+            display: block;
+            margin-top: 20px;
+            color: #007BFF;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .back-to-top:hover {
+            color: #0056b3;
+        }
+
+        /* ปรับการจัดวางให้สมส่วน */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ปรับภาพให้เรียบง่าย */
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+
+        /* ปรับตารางให้เรียบง่าย */
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 30px;
+            color: #777;
+        }
+
+        /* เมนูการนำทาง */
+        nav {
+            width: 100%;
+            background-color: transparent;  /* ไม่มีพื้นหลัง */
+            padding: 15px 0;
+            box-shadow: none;  /* ไม่มีเงา */
+            position: relative;
+            margin-top: 20px;  /* ทำให้เมนูอยู่ระหว่าง h1 กับ รูป */
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;  /* จัดตรงกลาง */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav li {
+            font-size: 18px;
+        }
+
+        nav a {
+            color: #333;  /* สีตัวอักษร */
+            text-decoration: none;
+            padding: 12px 20px;  /* เพิ่มช่องว่างภายในเมนู */
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #007BFF;  /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+            color: #fff;  /* เปลี่ยนสีตัวอักษรเมื่อ hover */
+        }
+
+        /* ปรับขนาดเมนูบนมือถือ */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="TOP">กล้วยบวชชี</h1>
+
+        <!-- เมนู -->
+        <nav>
+            <ul>
+                <li><a href="#วัตถุดิบ">วัตถุดิบ</a></li>
+                <li><a href="#วิธีทำ">วิธีทำ</a></li>
+                <li><a href="#ตารางโภชนาการ">ตารางโภชนาการ</a></li>
+                <li><a href="#แสดงความคิดเห็น">แสดงความคิดเห็น</a></li>
+            </ul>
+        </nav>
+
+        <img src="https://s359.kapook.com/pagebuilder/8a3fba92-b3f6-4754-ac9b-18e02a923252.jpg" alt="กล้วยบวชชี" width="400">
+
+        <!-- วัตถุดิบ -->
+        <h2 id="วัตถุดิบ">วัตถุดิบ</h2>
+        <div class="ingredients-list">
+            <ol>
+                <li>น้ำกระทิ 1000 มิลลิลิตร</li>
+                <li>กล้วยน้ำว้า 1 หวี</li>
+                <li>น้ำตาลปี๊บ 120 กรัม</li>
+                <li>เกลือ 1/2 ช้อนชา</li>
+                <li>ใบเตย 5 ใบ</li>
+            </ol>
+        </div>
+
+        <a class="back-to-top" href="#TOP">กลับสู่ข้างบน</a>
+
+        <!-- วิธีทำ -->
+        <h2 id="วิธีทำ">วิธีทำ</h2>
+        <div class="steps-list">
+            <h3>STEP 1 : ปอกและต้มกล้วย</h3>
+            <ul>
+                <li>ปอกกล้วย หั่นชิ้นตามชอบ แล้วนำไปล้างในน้ำเปล่าผสมเกลือเพื่อไม่ให้กล้วยดำ</li>
+                <li>นำกล้วยไปต้มให้น้ำเดือด 1 รอบเพื่อล้างยางกล้วย</li>
+            </ul>
+
+            <h3>STEP 2 : ทำกล้วยบวชชี</h3>
+            <ul>
+                <li>ใส่น้ำกระทิครึ่งหนึ่งลงในหม้อ นำขึ้นตั้งไฟปานกลางค่อนอ่อนพอร้อน จากนั้นใส่มัดใบเตย กล้วยน้ำว้าที่ต้มไว้
+                    น้ำตาลปี๊บ และเกลือ ตั้งให้เดือด คอยคนเรื่อย ๆ จนน้ำตาลละลายหมด แล้วเติมกะทิส่วนที่เหลือ</li>
+            </ul>
+
+            <h3>STEP 3 : จัดเสิร์ฟ</h3>
+            <ul>
+                <li>ต้มต่อเล็กน้อยเพื่อให้กะทิเข้าเนื้อกล้วย ระวังอย่าให้นานจนเนื้อกล้วยเละ จากนั้นตักใส่ถ้วยเสิร์ฟให้สวยงาม</li>
+            </ul>
+        </div>
+
+        <a class="back-to-top" href="#TOP">กลับสู่ข้างบน</a>
+
+        <!-- ตารางโภชนาการ -->
+        <h2 id="ตารางโภชนาการ">ตารางโภชนาการ</h2>
+        <table>
+            <tr>
+                <th>สารอาหาร</th>
+                <th>ปริมาณ</th>
+                <th>หน่วย</th>
+            </tr>
+            <tr>
+                <td>ไขมัน</td>
+                <td>18.8</td>
+                <td>g.</td>
+            </tr>
+            <tr>
+                <td>คาร์โบไฮเดรต</td>
+                <td>36.4</td>
+                <td>g.</td>
+            </tr>
+            <tr>
+                <td>โปรตีน</td>
+                <td>2.3</td>
+                <td>g.</td>
+            </tr>
+        </table>
+
+        <a class="back-to-top" href="#TOP">กลับสู่ข้างบน</a>
+
+        <!-- แสดงความคิดเห็น -->
+        <h2 id="แสดงความคิดเห็น">แสดงความคิดเห็น</h2>
+        <div class="form-container">
+            <form action="#">
+                <label for="เรื่อง">เรื่อง</label>
+                <input type="text" id="เรื่อง" name="Topic">
+
+                <label for="แสดงความคิดเห็น">แสดงความคิดเห็น</label>
+                <textarea name="แสดงความคิดเห็น" id="แสดงความคิดเห็น" rows="5"></textarea>
+
+                <input type="submit" value="Submit">
+                <input type="reset" value="Clear">
+            </form>
+        </div>
+
+        <a class="back-to-top" href="#TOP">กลับสู่ข้างบน</a>
+
+        <!-- Footer -->
+        <footer>
+            <p>อ้างอิง: <a href="https://www.wongnai.com/recipes/kluay-buad-chee" target="_blank">วิธีทำกล้วยบวชชี</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
